@@ -28,4 +28,4 @@ Please keep the following rules in mind when completing this activity:
 
    b. **If you are adding create, update, or delete logic, the user MUST have some way to trigger this via the UI.**
 
-3. Ask for help, if you need it.
+3. Ask for help anytime if something doesn't make sense or you become stuck.
