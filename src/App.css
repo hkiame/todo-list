@@ -1,31 +1,40 @@
 .App {
-  text-align: center;
+  /* background-color: #282c34; */
+  background-color: rgb(145, 217, 249);
+  min-height: 100vh;
+
+  /* Default values for nested components in .App */
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  height: 7.5vmin;
+  padding: 2vmin 1vmin;
+}
+
+.App-logo:hover {
+  cursor: pointer;
+}
+
+.AppHeader {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  z-index: 10;
+}
+
+.AppHeaderText {
+  align-self: center;
+  font-size: calc(15px + 2vmin);
+  font-weight: bold;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +44,31 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+#AppHeaderNavButtons {
+  /* Position styling */
+  left: 25%;
+  right: 25%;
+  position: absolute;
+  align-self: center;
+
+  /* Flexbox styling */
+  flex: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+
+  /* Inherited styling */
+  font-size: calc(5px + 2vmin);
+}
+
+.NavButton {
+  color: white;
+  text-decoration: none;
+}
+
+.NavButton:hover {
+  text-decoration: underline;
 }
