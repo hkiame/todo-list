@@ -2,7 +2,7 @@
 
 This is a sample to-do list web-application that will be extended as part of your coding interview. Please read the notes below before you get started, and good luck!
 
-Run `npm install` and `npm start` from the root of this directory
+Run `npm install` and `npm start` from the root of this directory to get started! Your tasks are defined in INSTRUCTIONS.md
 
 # Files
 
