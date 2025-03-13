@@ -20,7 +20,12 @@ This folder defines the pages that are rendered for the `Route` associated with 
 
 # Interacting with the DB
 
-We use json-server to create a mock server/DB based on the schema in `database/db.json`. You can perform CRUD operations on the DB using `axios`.
+We use json-server to create a mock server/DB based on the schema in `database/db.json`. You can perform CRUD operations on the DB using `axios`. Specifically, the following functions in `axios` represent the corresponding CRUD operations:
+
+- Create: `axios.post`
+- Read: `axios.get`
+- Update: `axios.put`
+- Delete: `axios.delete`
 
 You can request all items in the DB by making a GET request to `http://localhost:3001/items`.
 
