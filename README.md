@@ -4,6 +4,8 @@ This is a sample to-do list web-application that will be extended as part of you
 
 Run `npm install` and `npm start` from the root of this directory to get started! Your tasks are defined in `INSTRUCTIONS.md`
 
+**Make sure to fork this repository and add your final implementation to Github**. This is critical for code evaluation.
+
 # Files
 
 `src` contains all of our react code for this web app. For simplicity, we'll only discuss the files there.
@@ -48,7 +50,8 @@ Your task is to implement the following:
 ## Nice to have (bonus points, not required)
 
 - The following tasks are nice to have and are **not** required for this activity. If you feel that your task is a bonus task, please explain. This can include, but is not limited to:
-    - Improvements to functionality (i.e. an improvement or new feature you came up with on your own)
+
+  - Improvements to functionality (i.e. an improvement or new feature you came up with on your own)
 
 ## Important Notes
 
