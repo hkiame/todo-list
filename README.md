@@ -39,13 +39,29 @@ _Please read the README before beginning this activity_
 
 ### Requirements
 
-Your task is to implement the following:
+When implementing these tasks, you should follow basic CRUD principles, i.e.:
 
-1. Allow users to **create** new todo's.
-2. Allow users to **read** todo's (this is mainly completed for you already).
-3. Allow users to **update** existing todo's (i.e. change `isCompleted` to `true`).
-4. Allow users to **delete** todo's. (Should work for completed and non-completed items)
-5. Improve the UI/UX of the app. This is intentionally left open-ended to give you the opportunity to show off your skills!
+- Allow users to **create** new todo's.
+- Allow users to **read** todo's (this is mainly completed for you already).
+- Allow users to **update** existing todo's (i.e. change `isCompleted` to `true`).
+- Allow users to **delete** todo's. (Should work for completed and non-completed items)
+
+**Required:**
+
+1. A progress tracker in the homepage - a pie chart showing the percentage of completed and to-do tasks.\*\*
+   ![Local Image](./public/tracker.png)
+
+2. Improve the UI/UX of the app! This is intentially left open-ended to give you an opportuninty to show off your skills!
+
+   a. Some Ideas are:
+
+   - Create list button to create different task groups with to-dos
+   - ⁠Show the lists as a sidepanel
+   - Add a progress tracking bar for each list
+   - Add a calender to save and show the date and time when the to-do is created and completed
+   - Filter starred items
+   - Filter by date
+   - Move completed items back to To-do
 
 ## Nice to have (bonus points, not required)
 
