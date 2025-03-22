@@ -1,6 +1,3 @@
-import "./Common.css";
-import "../App.css";
-
 /**
  * This defines the to-do list, which contains items that haven't been completed yet.
  */
