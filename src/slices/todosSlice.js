@@ -12,9 +12,13 @@ export const fetchTodos = createAsyncThunk(
 
       return todos.map((todo) => {
         const group = groups.find((g) => g.id === todo.groupId);
+        const ungrouped = groups.find(
+          (g) => g.name.toLocaleLowerCase() === "ungrouped"
+        );
         return {
           ...todo,
-          groupName: group ? group.name : "Ungrouped",
+          groupName: group ? group.name : "ungrouped",
+          groupId: group ? group.id : ungrouped.id,
           createdDate: todo.createdDate || null,
         };
       });
@@ -23,48 +27,6 @@ export const fetchTodos = createAsyncThunk(
     }
   }
 );
-
-// export const createTodo = createAsyncThunk(
-//   "todos/createTodo",
-//   async (todoData, { getState }) => {
-//     const { groups } = getState();
-//     const ungroupedId =
-//       groups.ungroupedId || "660e8400-e29b-41d4-a716-446655441111";
-//     const normalizedTodo = {
-//       ...todoData,
-//       group: todoData.group || ungroupedId,
-//       createdDate: formatISO(new Date()),
-//     };
-//     const response = await api.createTodo(normalizedTodo);
-//     return response.data;
-//   }
-// );
-
-// // Update an existing todo
-// export const updateTodo = createAsyncThunk(
-//   "todos/updateTodo",
-//   async (todoData, { rejectWithValue }) => {
-//     try {
-//       const response = await axios.patch(`/api/todos/${todoData.id}`, todoData);
-//       return response.data;
-//     } catch (error) {
-//       return rejectWithValue(error.response.data);
-//     }
-//   }
-// );
-
-// // Delete an existing todo
-// export const deleteTodo = createAsyncThunk(
-//   "todos/deleteTodo",
-//   async (id, { rejectWithValue }) => {
-//     try {
-//       await axios.delete(`/api/todos/${id}`);
-//       return id;
-//     } catch (error) {
-//       return rejectWithValue(error.response.data);
-//     }
-//   }
-// );
 
 export const createTodo = createAsyncThunk(
   "todos/createTodo",
