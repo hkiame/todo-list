@@ -3,7 +3,6 @@ import { api } from "@/axiosClient";
 
 export const fetchTodos = createAsyncThunk("todos/fetchTodos", async () => {
   const response = await api.getTodos();
-  console.log("Response Todo:", response);
   return response;
 });
 
@@ -44,7 +43,6 @@ const todosSlice = createSlice({
       })
       .addCase(fetchTodos.fulfilled, (state, action) => {
         state.status = "succeeded";
-        console.log("fetchTodos.fulfilled:", action.payload);
         state.items = action.payload;
       })
       .addCase(fetchTodos.rejected, (state, action) => {
