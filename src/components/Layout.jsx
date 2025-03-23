@@ -1,40 +1,45 @@
+// Layout.jsx
 import { useState, useEffect } from "react";
 import { NavLink, Outlet, useLocation } from "react-router";
 import { v4 as uuidv4 } from "uuid";
+import { api } from "@/axiosClient";
 
 function Layout() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isNavAnimating, setIsNavAnimating] = useState(false);
   const [groups, setGroups] = useState([]);
-  const [todos, setTodos] = useState([]); // Add todos state
+  const [todos, setTodos] = useState([]);
   const [newGroup, setNewGroup] = useState("");
   const [selectedGroupId, setSelectedGroupId] = useState(null);
-  const location = useLocation(); // Detect current route
+  const location = useLocation();
 
   useEffect(() => {
-    fetch("http://localhost:3001/groups")
-      .then((res) => res.json())
-      .then((data) => setGroups(data));
-
-    fetch("http://localhost:3001/items")
-      .then((res) => res.json())
-      .then((data) => setTodos(data));
+    const fetchData = async () => {
+      try {
+        const [groupsData, todosData] = await Promise.all([
+          api.getGroups(),
+          api.getTodos(),
+        ]);
+        setGroups(groupsData);
+        setTodos(todosData);
+      } catch (error) {
+        console.error("Error fetching initial data:", error);
+      }
+    };
+    fetchData();
   }, []);
 
-  const addGroup = () => {
-    if (newGroup.trim()) {
-      const newGroupData = { id: uuidv4(), name: newGroup };
-      fetch("http://localhost:3001/groups", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newGroupData),
-      })
-        .then((res) => res.json())
-        .then((group) => {
-          setGroups([...groups, group]);
-          setNewGroup("");
-        });
+  const addGroup = async () => {
+    if (!newGroup.trim()) return;
+
+    const newGroupData = { id: uuidv4(), name: newGroup };
+    try {
+      const createdGroup = await api.createGroup(newGroupData);
+      setGroups([...groups, createdGroup]);
+      setNewGroup("");
+    } catch (error) {
+      console.error("Error adding group:", error);
     }
   };
 
@@ -75,9 +80,11 @@ function Layout() {
     <div className="min-h-screen bg-gray-100 flex flex-col font-sans">
       {/* Navbar */}
       <nav className="bg-white text-slate-800 p-4 flex justify-between items-center shadow-md border-b border-emerald-200 sticky top-0 z-50">
-        <h1 className="text-2xl font-semibold tracking-tight bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent">
-          To-Do Elite
-        </h1>
+        <NavLink to="/">
+          <h1 className="text-2xl font-semibold tracking-tight bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent">
+            To-Do Elite
+          </h1>
+        </NavLink>
         <div className="hidden md:flex gap-6">
           {navItems.map((item) => (
             <NavLink
