@@ -24,15 +24,24 @@ apiClient.interceptors.response.use(
   }
 );
 
+// export const api = {
+//   // Groups
+//   getGroups: () => apiClient.get("/groups"),
+//   createGroup: (groupData) => apiClient.post("/groups", groupData),
+
+//   // Todos
+//   getTodos: () => apiClient.get("/items"),
+//   createTodo: (todoData) => apiClient.post("/items", todoData),
+//   updateTodo: (id, todoData) => apiClient.put(`/items/${id}`, todoData),
+//   deleteTodo: (id) => apiClient.delete(`/items/${id}`),
+// };
+
 export const api = {
-  // Groups
+  getTodos: () => apiClient.get("/items"),
   getGroups: () => apiClient.get("/groups"),
   createGroup: (groupData) => apiClient.post("/groups", groupData),
-
-  // Todos
-  getTodos: () => apiClient.get("/items"),
   createTodo: (todoData) => apiClient.post("/items", todoData),
-  updateTodo: (id, todoData) => apiClient.put(`/items/${id}`, todoData),
+  updateTodo: (id, todoData) => apiClient.patch(`/items/${id}`, todoData),
   deleteTodo: (id) => apiClient.delete(`/items/${id}`),
 };
 

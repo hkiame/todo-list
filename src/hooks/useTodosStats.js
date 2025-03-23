@@ -1,30 +1,38 @@
+// src/hooks/useTodoStats.js
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTodos } from "../slices/todosSlice";
 
 export const useTodoStats = () => {
   const dispatch = useDispatch();
-  const { items: todos, status, error } = useSelector((state) => state.todos);
+  const {
+    items: todos,
+    status: todosStatus,
+    error: todosError,
+  } = useSelector((state) => state.todos);
+  const { selectedGroupId } = useSelector((state) => state.groups);
 
-  // Fetch todos on mount if not already fetched
   useEffect(() => {
-    if (status === "idle") {
+    if (todosStatus === "idle") {
       dispatch(fetchTodos());
     }
-  }, [status, dispatch]);
+  }, [todosStatus, dispatch]);
 
-  // Calculate completion stats
-  const totalTasks = todos.length;
-  const completedTasks = todos.filter((todo) => todo.isComplete).length;
+  const filteredTodos = selectedGroupId
+    ? todos.filter((todo) => todo.group === selectedGroupId)
+    : todos;
+
+  const totalTasks = filteredTodos.length;
+  const completedTasks = filteredTodos.filter((todo) => todo.isComplete).length;
   const completionPercentage =
     totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
 
   return {
-    todos, // Raw todos array
-    totalTasks, // Total number of tasks
-    completedTasks, // Number of completed tasks
-    completionPercentage, // Percentage of tasks completed
-    status, // Loading state: 'idle', 'loading', 'succeeded', 'failed'
-    error, // Any error from fetching todos
+    todos: filteredTodos,
+    totalTasks,
+    completedTasks,
+    completionPercentage,
+    status: todosStatus,
+    error: todosError,
   };
 };

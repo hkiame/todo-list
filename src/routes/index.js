@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router";
 import Layout from "@/components/Layout";
 import Homepage from "@/pages/Homepage";
-import { ToDoItemsPage } from "@/pages/TodoItemsPage";
+import ToDoItemsPage from "@/pages/TodoItemsPage";
 import { CompletedItemsPage } from "@/pages/CompletedItemsPage";
 import EditTodo from "@/pages/EditTodo";
 
