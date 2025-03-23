@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Modal from "react-modal";
 import { updateGroup, deleteGroup } from "../slices/groupsSlice";
 import { FaEdit, FaTrash, FaCheck } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 // Bind modal to app element for accessibility
 Modal.setAppElement("#root");
@@ -46,24 +47,31 @@ export default function GroupsPage() {
 
   const handleSaveEdit = async () => {
     try {
-      await dispatch(updateGroup({ id: editId, name: editName })).unwrap();
+      await dispatch(updateGroup({ id: editId, name: editName }))
+        .unwrap()
+        .then(() => toast.success(`Group updated successfully.`))
+        .catch(() => toast.error("Failed to update group."));
       setEditId(null);
       setEditName("");
     } catch (error) {
+      toast.error("Failed to update group.");
       console.error("Failed to update group:", error);
     }
   };
 
   const handleDelete = async (id) => {
     if (id === ungroupedId) {
-      alert("Cannot delete the Ungrouped category.");
+      toast.error("Cannot delete the Ungrouped category.");
       return;
     }
     try {
-      await dispatch(deleteGroup(id)).unwrap();
+      await dispatch(deleteGroup(id))
+        .unwrap()
+        .then(() => toast.success(`Group deleted successfully.`))
+        .catch(() => toast.error("Failed to delete group."));
     } catch (error) {
       console.error("Failed to delete group:", error);
-      // Optionally show an error message
+      toast.error("Cannot delete group category.");
     }
   };
 
@@ -206,7 +214,7 @@ export default function GroupsPage() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     onClick={handleSaveEdit}
-                    className="px-4 py-1 bg-[#15803D] text-white rounded hover:bg-[#126D34] transition flex items-center text-sm"
+                    className="px-4 py-1 bg-emerald-200 text-emerald-800 hover:bg-emerald-400 hover:text-white transition flex items-center text-sm"
                   >
                     <FaCheck className="mr-1" /> Save
                   </motion.button>

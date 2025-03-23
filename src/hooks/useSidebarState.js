@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import toast from "react-hot-toast";
+
 import {
   fetchGroups,
   createGroup,
@@ -33,9 +35,13 @@ export const useSidebarState = () => {
     if (!newGroup.trim()) return;
     const newGroupData = { id: uuidv4(), name: newGroup };
     try {
-      await dispatch(createGroup(newGroupData)).unwrap();
+      await dispatch(createGroup(newGroupData))
+        .unwrap()
+        .then(() => toast.success(`Group added successfully.`))
+        .catch(() => toast.error("Failed to add group."));
       setNewGroup("");
     } catch (error) {
+      toast.error("Failed to add group.");
       console.error("Error adding group:", error);
     }
   };

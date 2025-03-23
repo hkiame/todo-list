@@ -29,6 +29,7 @@ export default function Navbar({
     { path: "/", label: "Home" },
     { path: "/todos", label: "Todos" },
     { path: "/completed", label: "Completed" },
+    { path: "/pending", label: "Pending" },
     { path: "/groups", label: "Groups" },
   ];
 
