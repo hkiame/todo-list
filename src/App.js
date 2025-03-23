@@ -1,62 +1,53 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { Spacer } from "./Utils";
-import { Route, Routes } from "react-router";
-import { Homepage } from "./pages/Homepage";
-import { ToDoItemsPage } from "./pages/TodoItemsPage";
-import { CompletedItemsPage } from "./pages/CompletedItemsPage";
-
-/**
- * This defines a generic app header that is used as a navigation bar for both pages in
- * this application.
- *
- * Feel free to edit this code if you'd like, but it is NOT required.
- */
-const AppHeader = () => {
-  const todoSelected = window.location.pathname === "/todos";
-  const completedItemsSelected = window.location.pathname === "/completed";
-  return (
-    <header className="AppHeader">
-      <img
-        src={logo}
-        className="App-logo"
-        alt="logo"
-        onClick={() => (window.location.pathname = "")}
-      />
-      <p className="AppHeaderText">To-do List</p>
-      <div id="AppHeaderNavButtons">
-        <a
-          className="NavButton"
-          href="/todos"
-          style={{ textDecoration: todoSelected ? "underline" : "none" }}
-        >
-          To-do's
-        </a>
-        <Spacer width={"5vmin"} />
-        <a
-          className="NavButton"
-          href="/completed"
-          style={{
-            textDecoration: completedItemsSelected ? "underline" : "none",
-          }}
-        >
-          Completed
-        </a>
-      </div>
-    </header>
-  );
-};
+import AppRoutes from "@/routes";
+import { Provider } from "react-redux";
+import { store } from "@/store/store";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    <div className="App">
-      <AppHeader />
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/todos" element={<ToDoItemsPage />} />
-        <Route path="/completed" element={<CompletedItemsPage />} />
-      </Routes>
-    </div>
+    <Provider store={store}>
+      <AppRoutes />
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          style: {
+            border: "2px dotted #15803D",
+            borderRadius: "0.5rem",
+            padding: "1rem",
+            maxWidth: "24rem",
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+          },
+          success: {
+            style: {
+              background: "#A7F3D0", // emerald-200
+              color: "#065F46", // emerald-800
+            },
+            iconTheme: {
+              primary: "#10B981", // emerald-500
+            },
+          },
+          error: {
+            style: {
+              background: "#FEE2E2", // red-100
+              color: "#991B1B", // red-800
+            },
+            iconTheme: {
+              primary: "#EF4444", // red-500
+            },
+          },
+          info: {
+            style: {
+              background: "#F3F4F6", // gray-100
+              color: "#1F2937", // gray-800
+            },
+            iconTheme: {
+              primary: "#6B7280", // gray-500
+            },
+          },
+          duration: 3000, // Auto-dismiss after 3s
+        }}
+      />
+    </Provider>
   );
 }
 
