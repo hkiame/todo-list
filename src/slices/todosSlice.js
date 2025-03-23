@@ -1,9 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { api } from "@/xiosClient";
+import { api } from "@/axiosClient";
 
 export const fetchTodos = createAsyncThunk("todos/fetchTodos", async () => {
   const response = await api.getTodos();
-  return response.data;
+  console.log("Response Todo:", response);
+  return response;
 });
 
 export const createTodo = createAsyncThunk(
@@ -43,6 +44,7 @@ const todosSlice = createSlice({
       })
       .addCase(fetchTodos.fulfilled, (state, action) => {
         state.status = "succeeded";
+        console.log("fetchTodos.fulfilled:", action.payload);
         state.items = action.payload;
       })
       .addCase(fetchTodos.rejected, (state, action) => {
