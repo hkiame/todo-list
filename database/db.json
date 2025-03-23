@@ -1,22 +1,45 @@
 {
   "items": [
     {
-      "id": 0,
+      "id": "0",
       "heading": "Completed item example",
       "body": "This is an example to-do list item that has been completed.",
-      "isComplete": true
+      "isComplete": true,
+      "groupName": "Ungrouped",
+      "createdDate": null,
+      "completedDate": "2025-03-23T21:35:20.555Z"
     },
     {
-      "id": 1,
+      "id": "1",
       "heading": "To-do List Example",
       "body": "This is an example to-do list item. You can check this off once it's done!",
-      "isComplete": false
+      "isComplete": true,
+      "groupName": "School Work",
+      "createdDate": null,
+      "completedDate": "2025-03-23T21:28:34.618Z",
+      "groupId": "537f12f0-5d03-4e8a-9bdc-099e1c9e88d4",
+      "isStarred": false
     },
     {
-      "id": 2,
+      "id": "2",
       "heading": "Long To-do Item Example",
       "body": "Wellness is the breath we take, \nThe gentle pause, the steps we make. \nIt’s more than skin, more than the eyes, \nA deeper place where spirit lies. \n\nIt’s found in moments, soft and still, \nIn morning light, in evening’s chill. \nIt’s peace within, not seen or told, \nA warmth that melts away the cold. \n\nWellness grows in steady care, \nIn love for self, in thoughts that spare. \nIt’s the balance of the mind and soul, \nThe journey to feel whole, not small. \n\nIt’s nourishing both heart and skin, \nIn kindness given, in joy within. \nWellness thrives where joy is free, \nIn laughter shared, in harmony. \n\nSo take each day, embrace the flow, \nWith every step, let healing grow. \nWellness is the choice to be, \nAlive, at peace, and truly free.",
-      "isComplete": false
+      "isComplete": true,
+      "groupName": "Ungrouped",
+      "createdDate": null,
+      "completedDate": "2025-03-23T21:28:36.388Z",
+      "isStarred": false
+    },
+    {
+      "id": "c393028a-cb55-466d-98ea-fd15db8b1f51",
+      "heading": "Sing",
+      "body": "A di realest song\nDis is a prayer to the father\nGuide my steps as yuh sit on your throne\nShow mi di way fi get mi food an mi water\nAnd do nuh mek mi grudge nobody fi dem own\nWhole heap a people mek badmind tek dem ova\nCah dem a try fi face it all alone\nSo mi a call pon di strength of the father\nTo help mi fi work fi mi own\n\nKeep badmind outta mi heart\nKeep negative outta mi thoughts\nMi know seh it easy to pree di wrong way\nSo Jah Jah please guide mi everyday\nKeep badmind outta mi heart\nKeep negative outta mi thoughts\nMost high bless me yeah\nGuide and protect me yeah\n\nWell father\nDi strength that mi woulda tek fi badmind anotha man\nHelp mi use di strength and try find a betta plan\nThe time me tek I wish mi did have somebody life\nHelp mi pree mi own a life and try fi set it right yeah\nMi nuh wah fi pree nobody fi dem links\nHelp me to go out deh go look mi own a tings\nAnd I'm not perfect, I'm just a man\nThat's why mi call on yuh Jah fi keep mi strong\nSee upcoming pop shows\nGet tickets for your favorite artists\nYou might also like\nSay Hey (I Love You)\nMichael Franti & Spearhead\nHold My Hand\nSean Paul\nWine Pon You\nDoja Cat\nFather, before mi mind get bad\nBetta yuh flip it round and mek mi mind get mad\nMi prefer fi work hard everyday fi achieve mi goals\nNah grudge nobody fi dem own\n\nKeep badmind outta mi heart\nKeep negative outta mi thoughts\nMi know seh it easy to pree di wrong way\nSo Jah Jah please guide mi everyday\nKeep badmind outta mi heart\nKeep negative outta mi thoughts\nMost high bless me yeah\nGuide and protect me yeah\n\nYo Jah Jah\nNuh mek mi badmind Addi fi di Gaza\nNuh mek mi badmind Killa fi di Range\nNuh mek mi badmind Beenie fi di Grammy\nJah Jah please nuh mek mi badmind nobody\nNuh mek mi badmind Flippa fi di flossin\nNuh mek mi pree Nitty Kutchie fi di clothes\nNuh mek mi badmind D'Angel fi di store\nJah protect mi forever more\n\nFather, before mi mind get bad\nBetta yuh flip it round and mek mi mind get mad\nMi prefer fi work hard everyday fi achieve mi goals\nNah grudge nobody fi dem own\nKeep badmind outta mi heart\nKeep negative outta mi thoughts\nMi know seh it easy to pree di wrong way\nSo Jah Jah please guide mi everyday\nKeep badmind outta mi heart\nKeep negative outta mi thoughts\nMost high bless me yeah\nGuide and protect me yeah\n\nWell father mi give thanks fi life as mi wake up\nCause ah yuh mek it still a gwaan\nAnd even when mi day nuh turn out like mi want it to\nMi give thanks and mi move on\nBadmind live inna di soul and di heart of men\nDis fight is not an easy one\nJah Jah elevate mi and mek mi a betta man\nHelp mi to overstand\n\nFather, before mi mind get bad\nBetta yuh flip it round and mek mi mind get mad\nMi prefer fi work hard everyday fi achieve mi goals\nNah grudge nobody fi dem own\n\nFather, before mi mind get bad\nBetta yuh flip it round and mek mi mind get mad\nMi prefer fi work hard everyday fi achieve mi goals\nNah grudge nobody fi dem own\nKeep badmind outta mi heart\nKeep negative outta mi thoughts\nMi know seh it easy to pree di wrong way\nSo Jah Jah please guide mi everyday\nKeep badmind outta mi heart\nKeep negative outta mi thoughts\nMost high bless me yeah\nGuide and protect me yeah",
+      "completedDate": null,
+      "isComplete": false,
+      "isStarred": true,
+      "groupId": "1a447cbb-4753-41ef-865f-0ce3013f103f",
+      "createdDate": "2025-03-23T22:27:36.279Z",
+      "groupName": "Trained"
     }
   ],
   "groups": [
@@ -25,8 +48,16 @@
       "name": "ungrouped"
     },
     {
-      "id": "d3a64a50-8c9f-41de-8171-71523a870189",
+      "id": "537f12f0-5d03-4e8a-9bdc-099e1c9e88d4",
       "name": "School Work"
+    },
+    {
+      "id": "1a447cbb-4753-41ef-865f-0ce3013f103f",
+      "name": "Trained"
+    },
+    {
+      "id": "29d2b0d2-5310-4581-a302-808dcd7e179d",
+      "name": "Recreation"
     }
   ]
 }

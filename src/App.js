@@ -11,7 +11,6 @@ function App() {
         position="top-right"
         toastOptions={{
           style: {
-            border: "2px dotted #15803D",
             borderRadius: "0.5rem",
             padding: "1rem",
             maxWidth: "24rem",
@@ -19,32 +18,35 @@ function App() {
           },
           success: {
             style: {
-              background: "#A7F3D0", // emerald-200
-              color: "#065F46", // emerald-800
+              border: "2px dotted #15803D",
+              background: "#A7F3D0",
+              color: "#065F46",
             },
             iconTheme: {
-              primary: "#10B981", // emerald-500
+              primary: "#10B981",
             },
           },
           error: {
             style: {
-              background: "#FEE2E2", // red-100
-              color: "#991B1B", // red-800
+              border: "2px dotted #991B1B",
+              background: "#FEE2E2",
+              color: "#991B1B",
             },
             iconTheme: {
-              primary: "#EF4444", // red-500
+              primary: "#EF4444",
             },
           },
           info: {
             style: {
-              background: "#F3F4F6", // gray-100
-              color: "#1F2937", // gray-800
+              border: "2px dotted #1F2937",
+              background: "#F3F4F6",
+              color: "#1F2937",
             },
             iconTheme: {
-              primary: "#6B7280", // gray-500
+              primary: "#6B7280",
             },
           },
-          duration: 3000, // Auto-dismiss after 3s
+          duration: 3000,
         }}
       />
     </Provider>
