@@ -3,7 +3,7 @@ import Layout from "@/components/Layout";
 import Homepage from "@/pages/Homepage";
 import ToDoItemsPage from "@/pages/TodoItemsPage";
 import { CompletedItemsPage } from "@/pages/CompletedItemsPage";
-import EditTodo from "@/pages/EditTodo";
+import GroupsPage from "@/pages/GroupsPage";
 
 const AppRoutes = () => (
   <Routes>
@@ -11,7 +11,7 @@ const AppRoutes = () => (
       <Route index element={<Homepage />} />
       <Route path="todos" element={<ToDoItemsPage />} />
       <Route path="completed" element={<CompletedItemsPage />} />
-      <Route path="edit" element={<EditTodo />} />
+      <Route path="groups" element={<GroupsPage />} />
     </Route>
   </Routes>
 );

@@ -14,6 +14,30 @@ export const createGroup = createAsyncThunk(
   }
 );
 
+export const updateGroup = createAsyncThunk(
+  "groups/updateGroup",
+  async ({ id, name }, { rejectWithValue }) => {
+    try {
+      const response = await api.updateGroup(id, name);
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const deleteGroup = createAsyncThunk(
+  "groups/deleteGroup",
+  async (id, { rejectWithValue }) => {
+    try {
+      await api.deleteGroup(id);
+      return id;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
 const groupsSlice = createSlice({
   name: "groups",
   initialState: {
@@ -47,6 +71,15 @@ const groupsSlice = createSlice({
       })
       .addCase(createGroup.fulfilled, (state, action) => {
         state.items.push(action.payload);
+      })
+      .addCase(updateGroup.fulfilled, (state, action) => {
+        const updatedGroup = action.payload;
+        const index = state.items.findIndex((g) => g.id === updatedGroup.id);
+        if (index !== -1) state.items[index] = updatedGroup;
+      })
+      .addCase(deleteGroup.fulfilled, (state, action) => {
+        const deletedId = action.payload;
+        state.items = state.items.filter((g) => g.id !== deletedId);
       });
   },
 });

@@ -27,9 +27,9 @@ export default function Navbar({
 
   const navItems = [
     { path: "/", label: "Home" },
-    { path: "/todos", label: "All Todos" },
-    { path: "/completed", label: "Completed Todos" },
-    { path: "/edit", label: "Edit Todo" },
+    { path: "/todos", label: "Todos" },
+    { path: "/completed", label: "Completed" },
+    { path: "/groups", label: "Groups" },
   ];
 
   return (

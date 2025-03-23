@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useOutletContext } from "react-router";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { motion, AnimatePresence } from "framer-motion";
 import { formatDistanceToNow, parseISO } from "date-fns";
 import Modal from "react-modal";
@@ -82,7 +82,7 @@ export default function TodosPage() {
         transition={{ duration: 0.5 }}
         className="max-w-2xl mx-auto mb-12 text-center"
       >
-        <h1 className="text-3xl font-bold text-[#15803D] tracking-tight">
+        <h1 className="text-3xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-400 bg-clip-text text-transparent">
           {currentGroup}
         </h1>
         <p className="mt-2 text-base text-[#6B7280] font-medium">
@@ -261,7 +261,7 @@ export default function TodosPage() {
                         <motion.button
                           whileHover={{ scale: 1.05 }}
                           onClick={() => handleSaveEdit(todo)}
-                          className="px-4 py-1 bg-[#15803D] text-white rounded hover:bg-[#126D34] transition flex items-center text-sm"
+                          className="bg-emerald-200 text-emerald-800 hover:bg-emerald-400 hover:text-white transition px-4 py-1 rounded flex items-center text-sm"
                         >
                           <FaCheck className="mr-1" /> Save
                         </motion.button>
@@ -290,7 +290,7 @@ export default function TodosPage() {
                           <motion.button
                             whileHover={{ scale: 1.05 }}
                             onClick={() => handleToggleComplete(todo)}
-                            className="px-4 py-1 bg-[#15803D] text-white rounded hover:bg-[#126D34] transition flex items-center text-sm"
+                            className="bg-emerald-200 text-emerald-800 hover:bg-emerald-400 hover:text-white transition px-4 py-1 rounded flex items-center text-sm"
                           >
                             <FaCheck className="mr-1" />{" "}
                             {todo.isComplete ? "Unmark" : "Complete"}
