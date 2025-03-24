@@ -1,39 +1,45 @@
 // src/slices/todosSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { api } from "@/axiosClient";
-import { formatISO } from "date-fns";
 
 export const fetchTodos = createAsyncThunk(
   "todos/fetchTodos",
-  async (_, { getState }) => {
-    const response = await api.getTodos();
-    const { groups } = getState();
-    const ungroupedId =
-      groups.ungroupedId || "660e8400-e29b-41d4-a716-446655441111";
-    return response.map((todo) => ({
-      id: todo.id,
-      heading: todo.heading,
-      body: todo.body,
-      isComplete: todo.isComplete,
-      group: todo.group || ungroupedId,
-      createdDate: todo.createdDate || formatISO(new Date()),
-    }));
+  async (_, { getState, rejectWithValue }) => {
+    try {
+      const response = await api.getTodos();
+      const todos = response;
+      const { items: groups } = getState().groups;
+
+      return todos.map((todo) => {
+        const group = groups.find((g) => g.id === todo.groupId);
+        const ungrouped = groups.find(
+          (g) => g.name.toLocaleLowerCase() === "ungrouped"
+        );
+        return {
+          ...todo,
+          groupName: group ? group.name : "ungrouped",
+          groupId: group ? group.id : ungrouped.id,
+          createdDate: todo.createdDate || null,
+        };
+      });
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
 );
 
 export const createTodo = createAsyncThunk(
   "todos/createTodo",
-  async (todoData, { getState }) => {
-    const { groups } = getState();
-    const ungroupedId =
-      groups.ungroupedId || "660e8400-e29b-41d4-a716-446655441111";
-    const normalizedTodo = {
-      ...todoData,
-      group: todoData.group || ungroupedId,
-      createdDate: formatISO(new Date()),
-    };
-    const response = await api.createTodo(normalizedTodo);
-    return response.data;
+  async (todoData, { rejectWithValue }) => {
+    try {
+      const response = await api.createTodo({
+        ...todoData,
+        createdDate: new Date().toISOString(),
+      });
+      return response;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
   }
 );
 
@@ -41,7 +47,7 @@ export const updateTodo = createAsyncThunk(
   "todos/updateTodo",
   async (todoData) => {
     const response = await api.updateTodo(todoData.id, todoData); // Assumes PATCH or PUT
-    return response.data;
+    return response;
   }
 );
 
@@ -75,6 +81,7 @@ const todosSlice = createSlice({
         state.items.push(action.payload);
       })
       .addCase(updateTodo.fulfilled, (state, action) => {
+        console.log("updateTodo fulfilled:", action.payload);
         const index = state.items.findIndex(
           (todo) => todo.id === action.payload.id
         );

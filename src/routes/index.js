@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router";
 import Layout from "@/components/Layout";
 import Homepage from "@/pages/Homepage";
 import ToDoItemsPage from "@/pages/TodoItemsPage";
-import { CompletedItemsPage } from "@/pages/CompletedItemsPage";
+import CompletedItemsPage from "@/pages/CompletedItemsPage";
 import GroupsPage from "@/pages/GroupsPage";
 import PendingitemsPage from "@/pages/PendingItemsPage";
 

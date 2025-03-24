@@ -1,5 +1,6 @@
 import { Outlet, useLocation } from "react-router";
 import { useSidebarState } from "@/hooks/useSidebarState";
+import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 
 export default function Sidebar({
@@ -10,7 +11,6 @@ export default function Sidebar({
 }) {
   const {
     groups,
-    todos,
     selectedGroupId,
     newGroup,
     setNewGroup,
@@ -18,6 +18,9 @@ export default function Sidebar({
     selectGroup,
     groupsStatus,
   } = useSidebarState();
+
+  // Get unfiltered todos directly from Redux store
+  const todos = useSelector((state) => state.todos.items);
 
   const location = useLocation();
   const isHomePage = location.pathname === "/";
@@ -34,6 +37,21 @@ export default function Sidebar({
   const sidebarVariants = {
     open: { width: "auto", opacity: 1 },
     closed: { width: 0, opacity: 0 },
+  };
+
+  // Calculate progress for each group using unfiltered todos
+  const getGroupProgress = (groupId) => {
+    const groupTodos = todos.filter((todo) => todo.groupId === groupId);
+    const total = groupTodos.length;
+    const completed = groupTodos.filter((todo) => todo.isComplete).length;
+    return total > 0 ? Math.round((completed / total) * 100) : 0;
+  };
+
+  // Calculate progress for "All Groups" using unfiltered todos
+  const getAllGroupsProgress = () => {
+    const total = todos.length;
+    const completed = todos.filter((todo) => todo.isComplete).length;
+    return total > 0 ? Math.round((completed / total) * 100) : 0;
   };
 
   return (
@@ -58,7 +76,15 @@ export default function Sidebar({
                         : "text-slate-800 hover:bg-emerald-50"
                     }`}
                   >
-                    All Groups
+                    <div className="flex flex-col">
+                      <span>All Groups</span>
+                      <div className="w-full bg-gray-200 rounded-full h-2 mt-1">
+                        <div
+                          className="bg-emerald-600 h-2 rounded-full transition-all duration-300"
+                          style={{ width: `${getAllGroupsProgress()}%` }}
+                        />
+                      </div>
+                    </div>
                   </li>
                   {groups.map((group) => (
                     <li
@@ -70,7 +96,15 @@ export default function Sidebar({
                           : "text-slate-800 hover:bg-emerald-50"
                       }`}
                     >
-                      {group.name}
+                      <div className="flex flex-col">
+                        <span>{group.name}</span>
+                        <div className="w-full bg-gray-200 rounded-full h-2 mt-1">
+                          <div
+                            className="bg-emerald-600 h-2 rounded-full transition-all duration-300"
+                            style={{ width: `${getGroupProgress(group.id)}%` }}
+                          />
+                        </div>
+                      </div>
                     </li>
                   ))}
                 </ul>
@@ -167,7 +201,15 @@ export default function Sidebar({
                         : "text-slate-800 hover:bg-emerald-50"
                     }`}
                   >
-                    All Groups
+                    <div className="flex flex-col">
+                      <span>All Groups</span>
+                      <div className="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                        <div
+                          className="bg-emerald-600 h-1.5 rounded-full transition-all duration-300"
+                          style={{ width: `${getAllGroupsProgress()}%` }}
+                        />
+                      </div>
+                    </div>
                   </li>
                   {groups.map((group) => (
                     <li
@@ -182,7 +224,15 @@ export default function Sidebar({
                           : "text-slate-800 hover:bg-emerald-50"
                       }`}
                     >
-                      {group.name}
+                      <div className="flex flex-col">
+                        <span>{group.name}</span>
+                        <div className="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                          <div
+                            className="bg-emerald-600 h-1.5 rounded-full transition-all duration-300"
+                            style={{ width: `${getGroupProgress(group.id)}%` }}
+                          />
+                        </div>
+                      </div>
                     </li>
                   ))}
                 </ul>

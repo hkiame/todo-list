@@ -14,8 +14,9 @@ export default function GroupsPage() {
   const {
     items: groups,
     ungroupedId,
-    status,
+    status: groupsStatus,
   } = useSelector((state) => state.groups);
+  const { items: todos } = useSelector((state) => state.todos); // Access todos
   const [editId, setEditId] = useState(null);
   const [editName, setEditName] = useState("");
 
@@ -64,6 +65,14 @@ export default function GroupsPage() {
       toast.error("Cannot delete the Ungrouped category.");
       return;
     }
+
+    // Check if group has associated todos
+    const hasTodos = todos.some((todo) => todo.groupId === id);
+    if (hasTodos) {
+      toast.error("Cannot delete group with associated todos.");
+      return;
+    }
+
     try {
       await dispatch(deleteGroup(id))
         .unwrap()
@@ -71,7 +80,7 @@ export default function GroupsPage() {
         .catch(() => toast.error("Failed to delete group."));
     } catch (error) {
       console.error("Failed to delete group:", error);
-      toast.error("Cannot delete group category.");
+      toast.error("Failed to delete group.");
     }
   };
 
@@ -88,7 +97,9 @@ export default function GroupsPage() {
           Manage Groups
         </h1>
         <p className="mt-2 text-base text-[#6B7280] font-medium">
-          {status === "loading" ? "Loading..." : `${groups.length} Groups`}
+          {groupsStatus === "loading"
+            ? "Loading..."
+            : `${groups.length} Groups`}
         </p>
         <motion.div
           className="mt-3 h-0.5 w-16 bg-[#15803D] rounded-full mx-auto"
@@ -100,11 +111,11 @@ export default function GroupsPage() {
 
       {/* Groups List */}
       <main className="max-w-2xl mx-auto">
-        {status === "loading" ? (
+        {groupsStatus === "loading" ? (
           <div className="text-center text-[#6B7280] font-medium">
             Fetching groups...
           </div>
-        ) : status === "failed" ? (
+        ) : groupsStatus === "failed" ? (
           <div className="text-center text-red-600 font-medium">
             Failed to load groups.
           </div>

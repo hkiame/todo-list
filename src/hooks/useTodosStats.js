@@ -19,7 +19,7 @@ export const useTodoStats = () => {
   }, [todosStatus, dispatch]);
 
   const filteredTodos = selectedGroupId
-    ? todos.filter((todo) => todo.group === selectedGroupId)
+    ? todos.filter((todo) => todo.groupId === selectedGroupId)
     : todos;
 
   const totalTasks = filteredTodos.length;

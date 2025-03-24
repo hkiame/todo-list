@@ -1,17 +1,23 @@
-// ProgressSection.jsx
 import { useEffect, useState } from "react";
-import { VictoryPie, VictoryLabel } from "victory"; // Removed VictoryAnimation
+import { useSelector } from "react-redux"; // Add this import
+import { VictoryPie, VictoryLabel } from "victory";
 import { motion } from "framer-motion";
-import { useTodoStats } from "@/hooks/useTodosStats"; // Fixed typo in hook name
 
 export default function ProgressSection() {
-  const { totalTasks, completedTasks, completionPercentage, status } =
-    useTodoStats();
-  const [animatePercent, setAnimatePercent] = useState(0); // Local state for animation
+  // Get unfiltered todos from Redux store
+  const todos = useSelector((state) => state.todos.items);
+
+  // Calculate stats from unfiltered todos
+  const totalTasks = todos.length;
+  const completedTasks = todos.filter((todo) => todo.isComplete).length;
+  const completionPercentage =
+    totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
+
+  const [animatePercent, setAnimatePercent] = useState(0);
 
   // Animate percentage on mount or when completionPercentage changes
   useEffect(() => {
-    setAnimatePercent(0); // Reset to 0 on mount or change
+    setAnimatePercent(0);
     const timer = setTimeout(() => {
       setAnimatePercent(completionPercentage); // Animate to final value
     }, 100); // Small delay to ensure reset is visible
@@ -48,10 +54,10 @@ export default function ProgressSection() {
         Your Path to Mastery
       </h2>
 
-      {status === "loading" ? (
-        <p className="text-center text-slate-600">Loading your progress...</p>
-      ) : status === "failed" ? (
-        <p className="text-center text-red-600">Failed to load todos.</p>
+      {todos.length === 0 ? (
+        <p className="text-center text-slate-600">
+          No todos yet to track progress.
+        </p>
       ) : (
         <div className="flex flex-col md:flex-row items-center justify-center gap-12 relative z-10">
           {/* Donut Chart */}
@@ -69,13 +75,8 @@ export default function ProgressSection() {
               colorScale={["#059669", "#d4d4d4"]}
               padding={0}
               padAngle={3}
-              labelComponent={
-                <VictoryLabel
-                  textAnchor="middle"
-                  style={{ fontSize: 20, fill: "#333", fontWeight: "bold" }}
-                />
-              }
-              labelRadius={130}
+              labelIndicator
+              labels
               animate={{
                 duration: 1500,
                 onLoad: {
@@ -84,11 +85,11 @@ export default function ProgressSection() {
                 },
               }}
               style={{
-                data: {
-                  stroke: "#059669", // Outline for completed segment
-                  strokeWidth: (d) => (d.y === animatePercent ? 2 : 0), // Only stroke completed segment
-                },
-                labels: { fontSize: 20, fill: "#333", fontWeight: "bold" },
+                labels: {
+                  fontSize: 20,
+                  fill: "#333",
+                  fontWeight: "bold",
+                }, // Set font size & color
               }}
             />
             <motion.div

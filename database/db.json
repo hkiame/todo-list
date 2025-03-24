@@ -1,22 +1,84 @@
 {
   "items": [
     {
-      "id": 0,
+      "id": "0",
       "heading": "Completed item example",
       "body": "This is an example to-do list item that has been completed.",
-      "isComplete": true
+      "isComplete": true,
+      "groupName": "Ungrouped",
+      "createdDate": null,
+      "completedDate": "2025-03-23T21:35:20.555Z"
     },
     {
-      "id": 1,
+      "id": "1",
       "heading": "To-do List Example",
       "body": "This is an example to-do list item. You can check this off once it's done!",
-      "isComplete": false
+      "isComplete": false,
+      "groupName": "ungrouped",
+      "createdDate": null,
+      "completedDate": null,
+      "groupId": "550e8400-e29b-41d4-a716-446655440000",
+      "isStarred": false
     },
     {
-      "id": 2,
+      "id": "2",
       "heading": "Long To-do Item Example",
       "body": "Wellness is the breath we take, \nThe gentle pause, the steps we make. \nIt’s more than skin, more than the eyes, \nA deeper place where spirit lies. \n\nIt’s found in moments, soft and still, \nIn morning light, in evening’s chill. \nIt’s peace within, not seen or told, \nA warmth that melts away the cold. \n\nWellness grows in steady care, \nIn love for self, in thoughts that spare. \nIt’s the balance of the mind and soul, \nThe journey to feel whole, not small. \n\nIt’s nourishing both heart and skin, \nIn kindness given, in joy within. \nWellness thrives where joy is free, \nIn laughter shared, in harmony. \n\nSo take each day, embrace the flow, \nWith every step, let healing grow. \nWellness is the choice to be, \nAlive, at peace, and truly free.",
-      "isComplete": false
+      "isComplete": true,
+      "groupName": "Ungrouped",
+      "createdDate": null,
+      "completedDate": "2025-03-23T21:28:36.388Z",
+      "isStarred": false
+    },
+    {
+      "id": "73b25dda-7d86-4f43-b52d-e1de1ede3176",
+      "heading": "Technical Skills",
+      "body": "Complete React.js project\n\nSolve 2 LeetCode problems\n\nRead 1 chapter of a tech book",
+      "completedDate": null,
+      "isComplete": false,
+      "isStarred": false,
+      "groupId": "89982a65-6730-43c8-926b-e16ee3759a8f",
+      "createdDate": "2025-03-24T03:00:32.335Z"
+    },
+    {
+      "id": "239e5010-0e22-4d85-bd43-8b18849c991d",
+      "heading": "Groceries",
+      "body": "Buy milk, eggs, and vegetables\n\nRestock coffee and tea\n\nGet fresh bread from the bakery",
+      "completedDate": null,
+      "isComplete": false,
+      "isStarred": false,
+      "groupId": "ea983a51-b28c-4668-8f29-cea3b93cc66f",
+      "createdDate": "2025-03-24T03:02:13.807Z"
+    },
+    {
+      "id": "21dc2b99-a7a2-4e06-85aa-1a7b7233edfe",
+      "heading": "Networking",
+      "body": "Connect with 2 new people on LinkedIn\n\nReply to pending emails\n\nJoin a local tech meetup",
+      "completedDate": null,
+      "isComplete": false,
+      "isStarred": false,
+      "groupId": "105d5238-7ca9-46fa-b562-58950aa20172",
+      "createdDate": "2025-03-24T03:03:28.917Z"
+    },
+    {
+      "id": "2de5cbfc-eb26-48df-b149-a38866fb8131",
+      "heading": "Exercise Routine",
+      "body": "Morning 30-min jog\n\n10 push-ups & sit-ups\n\nStretch before bed",
+      "completedDate": null,
+      "isComplete": false,
+      "isStarred": false,
+      "groupId": "3773176a-18a5-441d-aa60-25e61e1d122a",
+      "createdDate": "2025-03-24T03:04:17.629Z"
+    },
+    {
+      "id": "f7c8d651-870a-41dd-9099-e7a3bdd94aaa",
+      "heading": "Healthy Eating",
+      "body": "Drink 8 glasses of water\n\nAvoid sugary drinks\n\nMeal prep for the week",
+      "completedDate": null,
+      "isComplete": false,
+      "isStarred": false,
+      "groupId": "3773176a-18a5-441d-aa60-25e61e1d122a",
+      "createdDate": "2025-03-24T03:04:48.347Z"
     }
   ],
   "groups": [
@@ -25,8 +87,20 @@
       "name": "ungrouped"
     },
     {
-      "id": "d3a64a50-8c9f-41de-8171-71523a870189",
-      "name": "School Work"
+      "id": "ea983a51-b28c-4668-8f29-cea3b93cc66f",
+      "name": "Errands"
+    },
+    {
+      "id": "105d5238-7ca9-46fa-b562-58950aa20172",
+      "name": "Work"
+    },
+    {
+      "id": "3773176a-18a5-441d-aa60-25e61e1d122a",
+      "name": "Health & Fitness"
+    },
+    {
+      "id": "89982a65-6730-43c8-926b-e16ee3759a8f",
+      "name": "Learning"
     }
   ]
 }
