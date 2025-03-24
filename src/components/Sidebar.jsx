@@ -1,7 +1,6 @@
-// src/components/Sidebar.jsx
 import { Outlet, useLocation } from "react-router";
 import { useSidebarState } from "@/hooks/useSidebarState";
-import { useSelector } from "react-redux"; // Add this import
+import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 
 export default function Sidebar({

@@ -13,11 +13,11 @@
       "id": "1",
       "heading": "To-do List Example",
       "body": "This is an example to-do list item. You can check this off once it's done!",
-      "isComplete": true,
-      "groupName": "School Work",
+      "isComplete": false,
+      "groupName": "ungrouped",
       "createdDate": null,
-      "completedDate": "2025-03-23T21:28:34.618Z",
-      "groupId": "537f12f0-5d03-4e8a-9bdc-099e1c9e88d4",
+      "completedDate": null,
+      "groupId": "550e8400-e29b-41d4-a716-446655440000",
       "isStarred": false
     },
     {
@@ -31,15 +31,54 @@
       "isStarred": false
     },
     {
-      "id": "c393028a-cb55-466d-98ea-fd15db8b1f51",
-      "heading": "Sing",
-      "body": "A di realest song\nDis is a prayer to the father\nGuide my steps as yuh sit on your throne\nShow mi di way fi get mi food an mi water\nAnd do nuh mek mi grudge nobody fi dem own\nWhole heap a people mek badmind tek dem ova\nCah dem a try fi face it all alone\nSo mi a call pon di strength of the father\nTo help mi fi work fi mi own\n\nKeep badmind outta mi heart\nKeep negative outta mi thoughts\nMi know seh it easy to pree di wrong way\nSo Jah Jah please guide mi everyday\nKeep badmind outta mi heart\nKeep negative outta mi thoughts\nMost high bless me yeah\nGuide and protect me yeah\n\nWell father\nDi strength that mi woulda tek fi badmind anotha man\nHelp mi use di strength and try find a betta plan\nThe time me tek I wish mi did have somebody life\nHelp mi pree mi own a life and try fi set it right yeah\nMi nuh wah fi pree nobody fi dem links\nHelp me to go out deh go look mi own a tings\nAnd I'm not perfect, I'm just a man\nThat's why mi call on yuh Jah fi keep mi strong\nSee upcoming pop shows\nGet tickets for your favorite artists\nYou might also like\nSay Hey (I Love You)\nMichael Franti & Spearhead\nHold My Hand\nSean Paul\nWine Pon You\nDoja Cat\nFather, before mi mind get bad\nBetta yuh flip it round and mek mi mind get mad\nMi prefer fi work hard everyday fi achieve mi goals\nNah grudge nobody fi dem own\n\nKeep badmind outta mi heart\nKeep negative outta mi thoughts\nMi know seh it easy to pree di wrong way\nSo Jah Jah please guide mi everyday\nKeep badmind outta mi heart\nKeep negative outta mi thoughts\nMost high bless me yeah\nGuide and protect me yeah\n\nYo Jah Jah\nNuh mek mi badmind Addi fi di Gaza\nNuh mek mi badmind Killa fi di Range\nNuh mek mi badmind Beenie fi di Grammy\nJah Jah please nuh mek mi badmind nobody\nNuh mek mi badmind Flippa fi di flossin\nNuh mek mi pree Nitty Kutchie fi di clothes\nNuh mek mi badmind D'Angel fi di store\nJah protect mi forever more\n\nFather, before mi mind get bad\nBetta yuh flip it round and mek mi mind get mad\nMi prefer fi work hard everyday fi achieve mi goals\nNah grudge nobody fi dem own\nKeep badmind outta mi heart\nKeep negative outta mi thoughts\nMi know seh it easy to pree di wrong way\nSo Jah Jah please guide mi everyday\nKeep badmind outta mi heart\nKeep negative outta mi thoughts\nMost high bless me yeah\nGuide and protect me yeah\n\nWell father mi give thanks fi life as mi wake up\nCause ah yuh mek it still a gwaan\nAnd even when mi day nuh turn out like mi want it to\nMi give thanks and mi move on\nBadmind live inna di soul and di heart of men\nDis fight is not an easy one\nJah Jah elevate mi and mek mi a betta man\nHelp mi to overstand\n\nFather, before mi mind get bad\nBetta yuh flip it round and mek mi mind get mad\nMi prefer fi work hard everyday fi achieve mi goals\nNah grudge nobody fi dem own\n\nFather, before mi mind get bad\nBetta yuh flip it round and mek mi mind get mad\nMi prefer fi work hard everyday fi achieve mi goals\nNah grudge nobody fi dem own\nKeep badmind outta mi heart\nKeep negative outta mi thoughts\nMi know seh it easy to pree di wrong way\nSo Jah Jah please guide mi everyday\nKeep badmind outta mi heart\nKeep negative outta mi thoughts\nMost high bless me yeah\nGuide and protect me yeah",
+      "id": "73b25dda-7d86-4f43-b52d-e1de1ede3176",
+      "heading": "Technical Skills",
+      "body": "Complete React.js project\n\nSolve 2 LeetCode problems\n\nRead 1 chapter of a tech book",
       "completedDate": null,
       "isComplete": false,
-      "isStarred": true,
-      "groupId": "1a447cbb-4753-41ef-865f-0ce3013f103f",
-      "createdDate": "2025-03-23T22:27:36.279Z",
-      "groupName": "Trained"
+      "isStarred": false,
+      "groupId": "89982a65-6730-43c8-926b-e16ee3759a8f",
+      "createdDate": "2025-03-24T03:00:32.335Z"
+    },
+    {
+      "id": "239e5010-0e22-4d85-bd43-8b18849c991d",
+      "heading": "Groceries",
+      "body": "Buy milk, eggs, and vegetables\n\nRestock coffee and tea\n\nGet fresh bread from the bakery",
+      "completedDate": null,
+      "isComplete": false,
+      "isStarred": false,
+      "groupId": "ea983a51-b28c-4668-8f29-cea3b93cc66f",
+      "createdDate": "2025-03-24T03:02:13.807Z"
+    },
+    {
+      "id": "21dc2b99-a7a2-4e06-85aa-1a7b7233edfe",
+      "heading": "Networking",
+      "body": "Connect with 2 new people on LinkedIn\n\nReply to pending emails\n\nJoin a local tech meetup",
+      "completedDate": null,
+      "isComplete": false,
+      "isStarred": false,
+      "groupId": "105d5238-7ca9-46fa-b562-58950aa20172",
+      "createdDate": "2025-03-24T03:03:28.917Z"
+    },
+    {
+      "id": "2de5cbfc-eb26-48df-b149-a38866fb8131",
+      "heading": "Exercise Routine",
+      "body": "Morning 30-min jog\n\n10 push-ups & sit-ups\n\nStretch before bed",
+      "completedDate": null,
+      "isComplete": false,
+      "isStarred": false,
+      "groupId": "3773176a-18a5-441d-aa60-25e61e1d122a",
+      "createdDate": "2025-03-24T03:04:17.629Z"
+    },
+    {
+      "id": "f7c8d651-870a-41dd-9099-e7a3bdd94aaa",
+      "heading": "Healthy Eating",
+      "body": "Drink 8 glasses of water\n\nAvoid sugary drinks\n\nMeal prep for the week",
+      "completedDate": null,
+      "isComplete": false,
+      "isStarred": false,
+      "groupId": "3773176a-18a5-441d-aa60-25e61e1d122a",
+      "createdDate": "2025-03-24T03:04:48.347Z"
     }
   ],
   "groups": [
@@ -48,16 +87,20 @@
       "name": "ungrouped"
     },
     {
-      "id": "537f12f0-5d03-4e8a-9bdc-099e1c9e88d4",
-      "name": "School"
+      "id": "ea983a51-b28c-4668-8f29-cea3b93cc66f",
+      "name": "Errands"
     },
     {
-      "id": "1a447cbb-4753-41ef-865f-0ce3013f103f",
-      "name": "Trained"
+      "id": "105d5238-7ca9-46fa-b562-58950aa20172",
+      "name": "Work"
     },
     {
-      "id": "29d2b0d2-5310-4581-a302-808dcd7e179d",
-      "name": "Recreation"
+      "id": "3773176a-18a5-441d-aa60-25e61e1d122a",
+      "name": "Health & Fitness"
+    },
+    {
+      "id": "89982a65-6730-43c8-926b-e16ee3759a8f",
+      "name": "Learning"
     }
   ]
 }

@@ -503,7 +503,7 @@ export default function TodosPage() {
                           <textarea
                             value={editBody}
                             onChange={(e) => setEditBody(e.target.value)}
-                            className="w-full p-3 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 h-40 text-base"
+                            className="w-full p-3 border border-gray-200 rounded-lg text-gray-900 font-normal focus:outline-none focus:ring-2 focus:ring-emerald-500 h-40 text-base"
                           />
                         </div>
                         <div>
