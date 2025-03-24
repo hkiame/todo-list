@@ -91,5 +91,5 @@ Set up environment variables to customize the app’s configuration:
 To start the development server and run the application, use the following command:
 
 ```bash
-npm run dev
+npm run start
 ```
