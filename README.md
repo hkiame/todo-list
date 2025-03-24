@@ -1,84 +1,95 @@
-# Getting started
+# Todo App
 
-This is a sample to-do list web-application that will be extended as part of your coding interview. Please read the notes below before you get started, and good luck!
+This is a React-based Todo List application designed to help users manage tasks efficiently. The app follows CRUD principles, offers a polished UI/UX, and includes features like task grouping and progress tracking. Built with modern tools and libraries, it provides a robust foundation for task management with thoughtful enhancements.
 
-Run `npm install` and `npm start` from the root of this directory to get started! Your tasks are defined in `INSTRUCTIONS.md`
+---
 
-**Make sure to fork this repository and add your final implementation to Github**. This is critical for code evaluation.
+## Features
 
-# Files
+### Core Functionality (CRUD)
 
-`src` contains all of our react code for this web app. For simplicity, we'll only discuss the files there.
+- **Create Todos**: Add new todos with a title and group assignment via a modal interface.
+- **Read Todos**: View todos organized by groups, with details accessible in an expandable modal.
+- **Update Todos**: Toggle completion status, edit titles, and adjust group or starred status.
+- **Delete Todos**: Remove todos (completed or not) with a single click, updating the app seamlessly.
 
-All code in `src`, with the exception of the `pages` directory, configures the common logic that all of our routes/components are built from.
+### Progress Tracking
 
-## Pages
+- **Task Stats**: Displays total completed vs. pending tasks in the header (logic via `useTodoStats` hook; pie chart UI planned but not implemented).
 
-This folder defines the pages that are rendered for the `Route` associated with each URL path. Inside we have source code and CSS for the following pages:
+### UI/UX Enhancements
 
-- Homepage
-- To-do list
-- Completed Tasks
+- **Task Groups**: Organize todos into categories (e.g., Personal, Work, Shopping) with a dropdown for group selection.
+- **Filters**:
+  - **Starred Items**: Toggle to show only starred todos.
+  - **Date Sorting**: Sort todos by newest or oldest creation date.
+  - **Search**: Filter todos by title using a search bar.
+- **Completion Toggle**: Move completed todos back to "To-do" status with ease.
+- **Date Display**: Shows `createdDate` and `completedDate` in a human-readable format (e.g., "2 days ago") using `date-fns`.
+- **Modals**: Clean, animated modals (via `react-modal` and `framer-motion`) for creating, viewing, and editing todos.
 
-# Interacting with the DB
+### Bonus Features
 
-We use json-server to create a mock server/DB based on the schema in `database/db.json`. You can perform CRUD operations on the DB using `axios`. Specifically, the following functions in `axios` represent the corresponding CRUD operations:
+- **Protected Group Deletion**: Prevents deletion of a todo group if it contains active todos, ensuring data integrity—users must clear or reassign todos first, avoiding accidental loss of tasks.
+- **Neat Project Organization**: Structured with a clear separation of concerns—Redux slices in `slices/`, custom hooks in `hooks/`, and components in `components/`, making the codebase scalable and maintainable.
+- **Custom Stats Hook**: Implemented `useTodoStats` to calculate task completion stats dynamically, reusable across the app for future UI expansions like progress bars.
+- **Toast Notifications**: Integrated `react-hot-toast` for real-time feedback on actions (e.g., "Todo created", "Todo deleted"), enhancing user experience.
+- **Redux-Powered State**: Utilizes Redux with Redux Toolkit for centralized, predictable state management, ensuring smooth data flow and scalability.
+  **Protected Group Deletion**:
+  - Added to "Bonus Features" with a clear description: "Prevents deletion of a todo group if it contains active todos, ensuring data integrity—users must clear or reassign todos first, avoiding accidental loss of tasks." This reflects the functionality you described and positions it as a thoughtful enhancement.
 
-- Create: `axios.post`
-- Read: `axios.get`
-- Update: `axios.put`
-- Delete: `axios.delete`
+---
 
-You can request all items in the DB by making a GET request to `http://localhost:3001/items`.
+### Project Configuration: Adding Craco for Type Alias Support
 
-You can request _specific_ items in the DB by using query parameters, i.e. `http://localhost:3001/items?isComplete=false`.
+In this project, we've integrated the **Craco (Create React App Configuration Override)** package to enable **type alias support** for imports. This was necessary because **Create React App (CRA)** no longer natively supports Webpack aliases, which are essential for cleaner and more maintainable import paths.
 
-# Interview Question Instructions
+## Setup Instructions
 
-_Please read the README before beginning this activity_
+### Prerequisites
 
-### Requirements
+Before you begin, ensure you have the following installed:
 
-When implementing these tasks, you should follow basic CRUD principles, i.e.:
+- **Node.js**: Version 14.x or higher (download from [nodejs.org](https://nodejs.org/))
+- **npm**: Version 6.x or higher (comes with Node.js)
+- **Git**: For cloning the repository (download from [git-scm.com](https://git-scm.com/))
 
-- Allow users to **create** new todo's.
-- Allow users to **read** todo's (this is mainly completed for you already).
-- Allow users to **update** existing todo's (i.e. change `isCompleted` to `true`).
-- Allow users to **delete** todo's. (Should work for completed and non-completed items)
+---
 
-**Required:**
+### Installation
 
-1. A progress tracker in the homepage - a pie chart showing the percentage of completed and to-do tasks.\*\*
-   ![Local Image](./public/tracker.png)
+### 1. Clone the Repository
 
-2. Improve the UI/UX of the app! This is intentially left open-ended to give you an opportuninty to show off your skills!
+Clone the Todo App repository to your local machine using Git:
 
-   a. Some Ideas are:
+```bash
+git clone https://github.com/yourusername/todo-app.git
+cd todo-app
+```
 
-   - Create list button to create different task groups with to-dos
-   - ⁠Show the lists as a sidepanel
-   - Add a progress tracking bar for each list
-   - Add a calender to save and show the date and time when the to-do is created and completed
-   - Filter starred items
-   - Filter by date
-   - Move completed items back to To-do
+### Install Dependencies
 
-## Nice to have (bonus points, not required)
+Install the required npm packages by running:
 
-- The following tasks are nice to have and are **not** required for this activity. If you feel that your task is a bonus task, please explain. This can include, but is not limited to:
+```bash
+npm install
+```
 
-  - Improvements to functionality (i.e. an improvement or new feature you came up with on your own)
+### Configure Environment
 
-## Important Notes
+Set up environment variables to customize the app’s configuration:
 
-Please keep the following rules in mind when completing this activity:
+1. **Create a `.env` file** in the project root.
+2. Add the following environment variable to configure the API URL:
 
-1. **Keep this question confidential**. Do not discuss and/or share the details of this question with anyone else.
-2. **Each task requires some fullstack change**.
+   ```env
+   REACT_APP_API_URL=http://localhost:3001
+   ```
 
-   a. If you add new field(s) to the schema, you need to make sure that the change is backwards-compatible with the original version. Make sure you're also filtering your queries appropriately.
+### Running the Application
 
-   b. **If you are adding create, update, or delete logic, the user MUST have some way to trigger this via the UI.**
+To start the development server and run the application, use the following command:
 
-3. **Maintain reactive design**. The app should be readable and functional amongst a variety of different devices and screen sizes.
-4. Ask for help anytime if something doesn't make sense or you become stuck.
+```bash
+npm run dev
+```
