@@ -1,5 +1,7 @@
+// src/components/Sidebar.jsx
 import { Outlet, useLocation } from "react-router";
 import { useSidebarState } from "@/hooks/useSidebarState";
+import { useSelector } from "react-redux"; // Add this import
 import { motion } from "framer-motion";
 
 export default function Sidebar({
@@ -10,7 +12,6 @@ export default function Sidebar({
 }) {
   const {
     groups,
-    todos,
     selectedGroupId,
     newGroup,
     setNewGroup,
@@ -18,6 +19,9 @@ export default function Sidebar({
     selectGroup,
     groupsStatus,
   } = useSidebarState();
+
+  // Get unfiltered todos directly from Redux store
+  const todos = useSelector((state) => state.todos.items);
 
   const location = useLocation();
   const isHomePage = location.pathname === "/";
@@ -36,7 +40,7 @@ export default function Sidebar({
     closed: { width: 0, opacity: 0 },
   };
 
-  // Calculate progress for each group
+  // Calculate progress for each group using unfiltered todos
   const getGroupProgress = (groupId) => {
     const groupTodos = todos.filter((todo) => todo.groupId === groupId);
     const total = groupTodos.length;
@@ -44,7 +48,7 @@ export default function Sidebar({
     return total > 0 ? Math.round((completed / total) * 100) : 0;
   };
 
-  // Calculate progress for "All Groups"
+  // Calculate progress for "All Groups" using unfiltered todos
   const getAllGroupsProgress = () => {
     const total = todos.length;
     const completed = todos.filter((todo) => todo.isComplete).length;
